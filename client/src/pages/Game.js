@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import Card from '../components/Card';
 // @ts-ignore
 import { RoboBody } from '../models/RoboBody';
+import { Weapon } from '../models/Weapon';
+import { Defense } from '../models/Defense';
 
 function Game() {
 
@@ -30,16 +32,57 @@ function Game() {
       speed: 1,
       energyMod: -1
     }),
-
   ];
+
+  const weapons = [
+    new Weapon({
+      id: 1,
+      name: "Fist",
+      space: 1,
+      energyCost: 1,
+      damage: 1
+    }),
+  ]
+  const defenses = [
+    new Defense({
+      id: 1,
+      name: "Plating",
+      space: 1,
+      energyCost: 0,
+      block: 1
+    }),
+  ]
 
   const [listOfRobobodies, setListOfRobobodies] = useState([]);
 
   return (
-    <div className="m-2 flex">
-      <Card roboBody={roboBodies[0]} />
-      <Card roboBody={roboBodies[1]} />
-      <Card roboBody={roboBodies[2]} />
+    <div>
+      <div className="m-2 flex justify-center">
+
+
+        <div className="slot"></div>
+        <div className="slot"></div>
+        <div className="slot"></div>
+        <div className="slot"></div>
+        <div className="slot"></div>
+        <div className="slot"></div>
+      </div>
+
+      <p>RoboBodies:</p>
+      <div className="flex">
+        {roboBodies.map(body => <Card roboBody={body} />)}
+      </div>
+
+      <p>Weapons:</p>
+      <div className="flex">
+        {weapons.map(weapon => <Card weapon={weapon} />)}
+      </div>
+
+      <p>Defenses:</p>
+      <div className="flex">
+        {defenses.map(defense => <Card defense={defense} />)}
+      </div>
+
     </div>
   )
 }

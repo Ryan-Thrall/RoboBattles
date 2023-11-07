@@ -66,6 +66,15 @@ body {
   border-radius: 10px;
 }
 
+.slot {
+  background-color: lightgray;
+  width: 75px;
+  height: 75px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
 @media (max-width: 1000px) {
   .navbar {
     flex-direction: column;
