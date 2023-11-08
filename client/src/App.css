@@ -67,12 +67,52 @@ body {
 }
 
 .slot {
-  background-color: lightgray;
+
   width: 75px;
   height: 75px;
   margin-right: 10px;
   margin-left: 10px;
   border-radius: 10px;
+}
+
+.slot,
+.red {
+  background-color: rgba(172, 0, 0, 0.432);
+}
+
+.slot.blue {
+  background-color: rgba(0, 0, 172, 0.432);
+}
+
+.factorySlot {
+  background-color: lightgray;
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+  margin-left: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.weaponSlot {
+  background-color: #C23F3D;
+  width: 50px;
+  height: 50px;
+  right: 0px;
+  top: -50px;
+  border-radius: 10px;
+  position: absolute
+}
+
+.defenseSlot {
+  background-color: #3DC0C2;
+  width: 50px;
+  height: 50px;
+  left: 0px;
+  top: -50px;
+  border-radius: 10px;
+  position: absolute;
 }
 
 @media (max-width: 1000px) {
