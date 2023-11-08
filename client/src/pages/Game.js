@@ -82,7 +82,6 @@ function Game() {
     }),
   ]
 
-  // const [listOfRobobodies, setListOfRobobodies] = useState([]);
   const [robot1, setRobot1] = useState(new Robot({
     id: 1, RoboBody: null,
     Weapon: null,
@@ -91,10 +90,6 @@ function Game() {
 
   return (
     <div>
-
-      <p>{robot1.RoboBody?.name}</p>
-      <p>{robot1.Weapon?.name}</p>
-      <p>{robot1.Defense?.name}</p>
 
       <div className="m-2 flex justify-center">
         <div className="slot blue"></div>
@@ -142,17 +137,20 @@ function Game() {
         )}
       </div>
 
-      <div className="factorySlot">
+      <div className="bodySlot w-32 h-32 p-0">
         {robot1.RoboBody != null && <Card roboBody={robot1.RoboBody} />}
 
 
-        <div className="weaponSlot">
+        <div className="weaponSlot w-32 h-32">
           {robot1.Weapon != null && <Card weapon={robot1.Weapon} />}
         </div>
-        <div className="defenseSlot">
+        <div className="defenseSlot w-32 h-32">
           {robot1.Defense != null && <Card defense={robot1.Defense} />}
         </div>
       </div>
+
+      <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deploy Red</button>
+      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Deploy Blue</button>
 
     </div>
   )

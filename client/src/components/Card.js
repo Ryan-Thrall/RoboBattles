@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 function Card(props) {
   return (
-    <div className={classNames("border-2", "border-black", "rounded-md", "w-32", "h-32", "text-center", "mx-2", {
+    <div className={classNames("border-2", "border-black", "rounded-md", "w-32", "h-32", "text-center", {
       'bg-red-200': props.weapon != null,
       'bg-gray-200': props.roboBody != null,
       'bg-blue-200': props.defense != null
