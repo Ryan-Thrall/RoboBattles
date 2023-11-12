@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, { useContext, useEffect, useState } from 'react';
 import Card from '../components/Card';
 // @ts-ignore
@@ -7,29 +8,6 @@ import { Weapon } from '../models/Weapon';
 import { Defense } from '../models/Defense';
 
 function Game() {
-
-  const selectCard = (card) => {
-    if (card.type === "RoboBody") {
-      setRobot1({
-        ...robot1,
-        RoboBody: card,
-      });
-    }
-    if (card.type === "Weapon") {
-      setRobot1({
-        ...robot1,
-        Weapon: card,
-      });
-    }
-    if (card.type === "Defense") {
-      setRobot1({
-        ...robot1,
-        Defense: card,
-      });
-    }
-
-    console.log(robot1)
-  }
 
   const roboBodies = [
     new RoboBody({
@@ -82,11 +60,56 @@ function Game() {
     }),
   ]
 
-  const [robot1, setRobot1] = useState(new Robot({
+  const [listOfRedBots, setListOfRedBots] = useState<Robot[]>([]);
+  // const [listOfBlueBots, setListOfBlueBots] = useState([{}]);
+
+  const [factoryBot, setfactoryBot] = useState(new Robot({
     id: 1, RoboBody: null,
     Weapon: null,
     Defense: null,
   }))
+
+  const selectCard = (card) => {
+    if (card.type === "RoboBody") {
+      // @ts-ignore
+      setfactoryBot({
+        ...factoryBot,
+        RoboBody: card,
+      });
+    }
+    if (card.type === "Weapon") {
+      // @ts-ignore
+      setfactoryBot({
+        ...factoryBot,
+        Weapon: card,
+      });
+    }
+    if (card.type === "Defense") {
+      // @ts-ignore
+      setfactoryBot({
+        ...factoryBot,
+        Defense: card,
+      });
+    }
+  }
+
+
+
+  const deployBot = (team) => {
+    if (team === "Red") {
+      console.log([...listOfRedBots, factoryBot]);
+      setListOfRedBots([...listOfRedBots, factoryBot]);
+
+    }
+    else if (team === "Blue") {
+    }
+  }
+
+
+  useEffect(() => {
+
+  })
+
 
   return (
     <div>
@@ -138,19 +161,19 @@ function Game() {
       </div>
 
       <div className="bodySlot w-32 h-32 p-0">
-        {robot1.RoboBody != null && <Card roboBody={robot1.RoboBody} />}
+        {factoryBot.RoboBody != null && <Card roboBody={factoryBot.RoboBody} />}
 
 
         <div className="weaponSlot w-32 h-32">
-          {robot1.Weapon != null && <Card weapon={robot1.Weapon} />}
+          {factoryBot.Weapon != null && <Card weapon={factoryBot.Weapon} />}
         </div>
         <div className="defenseSlot w-32 h-32">
-          {robot1.Defense != null && <Card defense={robot1.Defense} />}
+          {factoryBot.Defense != null && <Card defense={factoryBot.Defense} />}
         </div>
       </div>
 
-      <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deploy Red</button>
-      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Deploy Blue</button>
+      <button type="button" onClick={() => deployBot("Red")} className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deploy Red</button>
+      <button type="button" onClick={() => deployBot("Blue")} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Deploy Blue</button>
 
     </div>
   )
