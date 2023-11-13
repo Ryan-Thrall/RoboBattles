@@ -24,6 +24,7 @@ const Navbar = () => {
       <div className={isActive ? 'navbar-links active' : 'navbar-links'}>
         <ul>
           {/* <li><Link to="/myGames">My Games</Link></li> */}
+          <li><Link to="/garage">Garage</Link></li>
           <li><Link to="/game">Game Page Testing!!!!!</Link></li>
           {/* <li><LoginButton /></li>
           <li><LogoutButton /></li> */}

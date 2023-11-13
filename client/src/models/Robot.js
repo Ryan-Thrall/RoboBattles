@@ -9,5 +9,6 @@ export class Robot extends React.Component {
     this.Weapon = data.Weapon;
     this.Defense = data.Defense;
     this.Special = data.Special;
+    this.position = data.position;
   }
 }

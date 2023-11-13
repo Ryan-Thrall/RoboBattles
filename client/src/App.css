@@ -69,14 +69,14 @@ body {
 .slot {
 
   width: 75px;
-  height: 75px;
-  margin-right: 10px;
-  margin-left: 10px;
+  height: 25px;
+  margin-top: 50px;
+  /* margin-right: 10px;
+  margin-left: 10px; */
   border-radius: 10px;
 }
 
-.slot,
-.red {
+.slot.red {
   background-color: rgba(172, 0, 0, 0.432);
 }
 
@@ -84,11 +84,14 @@ body {
   background-color: rgba(0, 0, 172, 0.432);
 }
 
+.slot.gray {
+  background-color: rgba(60, 60, 60, 0.432);
+}
+
 .bodySlot {
   background-color: lightgray;
   margin-right: 10px;
   margin-left: 400px;
-  margin-top: 20px;
   border-radius: 10px;
   position: relative;
 }
