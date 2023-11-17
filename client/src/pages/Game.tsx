@@ -1,10 +1,14 @@
 // @ts-ignore
 import React from 'react';
 
+import Board from '../components/Board';
+
 function Game() {
 
   return (
-    <div></div>
+    <div className="boardContainer">
+      <Board />
+    </div>
   )
 }
 
