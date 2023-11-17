@@ -133,17 +133,24 @@ body {
   place-content: center;
 }
 
-#board .tile {
+.tile {
   width: 100px;
   height: 100px;
+  display: grid;
+  place-content: center;
 }
 
-#board .dark-tile {
+.dark-tile {
   background-color: rgb(105, 105, 105);
 }
 
-#board .light-tile {
+.light-tile {
   background-color: rgb(212, 212, 212);
+}
+
+.bot {
+  width: 80px;
+  height: auto;
 }
 
 @media (max-width: 1000px) {
