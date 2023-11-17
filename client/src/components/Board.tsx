@@ -16,7 +16,7 @@ for (let i = 0; i < 8; i++) {
   pieces.push({ image: "assets/RedBot.png", x: i, y: 0 })
 }
 for (let i = 0; i < 8; i++) {
-  pieces.push({ image: "assets/RedBot.png", x: i, y: 7 })
+  pieces.push({ image: "assets/BlueBot.png", x: i, y: 7 })
 }
 
 
